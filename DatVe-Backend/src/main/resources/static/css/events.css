@@ -21,11 +21,8 @@ body {
   top: 0;
   width: 250px;
   height: 100vh;
-  background: #1f2937;
-  color: white;
-  overflow-y: auto;
-  overflow-x: hidden;
-  transition: 0.3s;
+  background: #111827;
+  color: #fff;
 }
 
 .logo {
@@ -39,8 +36,8 @@ body {
 }
 
 .logo i {
-  margin-right: 10px;
   color: #3b82f6;
+  margin-right: 10px;
 }
 
 .sidebar ul {
@@ -49,11 +46,11 @@ body {
 }
 
 .sidebar li {
-  transition: 0.25s;
+  transition: 0.3s;
 }
 
 .sidebar li:hover {
-  background: #374151;
+  background: #1f2937;
 }
 
 .sidebar li.active {
@@ -63,16 +60,19 @@ body {
 .sidebar li a {
   display: flex;
   align-items: center;
-  color: white;
+  color: #fff;
   text-decoration: none;
-  padding: 16px 25px;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 18px 25px;
 }
 
 .sidebar li i {
-  width: 28px;
+  width: 35px;
   font-size: 18px;
+}
+
+.main {
+  margin-left: 250px;
+  padding: 30px;
 }
 
 /* Scroll */

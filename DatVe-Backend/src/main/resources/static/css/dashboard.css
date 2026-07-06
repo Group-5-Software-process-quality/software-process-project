@@ -16,46 +16,32 @@ body {
 /* ================= Sidebar ================= */
 
 .sidebar {
-  width: 250px;
-
-  height: 100vh;
-
-  background: #111827;
-
   position: fixed;
-
   left: 0;
-
   top: 0;
-
-  color: white;
+  width: 250px;
+  height: 100vh;
+  background: #111827;
+  color: #fff;
 }
 
 .logo {
   height: 70px;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   font-size: 24px;
-
   font-weight: bold;
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo i {
-  margin-right: 10px;
-
   color: #3b82f6;
+  margin-right: 10px;
 }
 
 .sidebar ul {
   list-style: none;
-
   padding: 20px 0;
 }
 
@@ -71,20 +57,22 @@ body {
   background: #2563eb;
 }
 
-.sidebar a {
+.sidebar li a {
   display: flex;
-
   align-items: center;
-
-  color: white;
-
+  color: #fff;
   text-decoration: none;
-
   padding: 18px 25px;
 }
 
-.sidebar i {
+.sidebar li i {
   width: 35px;
+  font-size: 18px;
+}
+
+.main {
+  margin-left: 250px;
+  padding: 30px;
 }
 
 /* ================= Main ================= */

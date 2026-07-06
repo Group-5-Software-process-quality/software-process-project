@@ -1,73 +1,151 @@
-protectPage();
+let statusChart = null;
+let revenueChart = null;
+
+// ==============================
+// Header
+// ==============================
+
+document.getElementById("adminName").innerText =
+  localStorage.getItem("adminName") || "Administrator";
+
+document.getElementById("today").innerText = new Date().toLocaleDateString(
+  "vi-VN",
+);
+
+// ==============================
+// Statistics
+// ==============================
 
 async function loadStatistics() {
-  const users = await API.GET("/users");
+  try {
+    const orders = await API.GET("/orders");
 
-  const events = await API.GET("/events");
+    console.log("Orders:", orders);
 
-  const orders = await API.GET("/orders");
+    let revenue = 0;
+    let paid = 0;
+    let pending = 0;
+    let cancelled = 0;
 
-  document.getElementById("totalUsers").innerHTML = users.length;
+    orders.forEach((order) => {
+      if (order.status === "PAID") {
+        revenue += Number(order.totalAmount);
+        paid++;
+      } else if (order.status === "PENDING") {
+        pending++;
+      } else if (order.status === "CANCELLED") {
+        cancelled++;
+      }
+    });
 
-  document.getElementById("totalEvents").innerHTML = events.length;
+    document.getElementById("totalRevenue").innerHTML =
+      revenue.toLocaleString("vi-VN") + " ₫";
 
-  let revenue = 0;
+    document.getElementById("totalOrders").innerHTML = orders.length;
 
-  let paid = 0;
+    document.getElementById("paidOrders").innerHTML = paid;
 
-  let pending = 0;
+    document.getElementById("pendingOrders").innerHTML = pending;
 
-  orders.forEach((o) => {
-    if (o.status === "PAID") {
-      paid++;
+    // ==========================
+    // Status Chart
+    // ==========================
 
-      revenue += o.totalAmount;
+    if (statusChart != null) {
+      statusChart.destroy();
     }
 
-    if (o.status === "PENDING") {
-      pending++;
-    }
-  });
-
-  document.getElementById("totalRevenue").innerHTML = money(revenue);
-
-  new Chart(
-    document.getElementById("statusChart"),
-
-    {
-      type: "pie",
+    statusChart = new Chart(document.getElementById("statusChart"), {
+      type: "doughnut",
 
       data: {
-        labels: ["Paid", "Pending"],
+        labels: ["Paid", "Pending", "Cancelled"],
 
         datasets: [
           {
-            data: [paid, pending],
+            data: [paid, pending, cancelled],
+
+            backgroundColor: ["#16a34a", "#f59e0b", "#ef4444"],
+
+            borderWidth: 0,
+
+            hoverOffset: 10,
           },
         ],
       },
-    },
-  );
 
-  new Chart(
-    document.getElementById("revenueChart"),
+      options: {
+        responsive: true,
 
-    {
+        cutout: "65%",
+
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    });
+
+    // ==========================
+    // Revenue Chart
+    // ==========================
+
+    if (revenueChart != null) {
+      revenueChart.destroy();
+    }
+
+    revenueChart = new Chart(document.getElementById("revenueChart"), {
       type: "bar",
 
       data: {
-        labels: orders.map((o) => "Order " + o.id),
+        labels: orders.map((o) => o.event.title),
 
         datasets: [
           {
             label: "Revenue",
 
             data: orders.map((o) => o.totalAmount),
+
+            backgroundColor: "#2563eb",
+
+            borderRadius: 8,
           },
         ],
       },
-    },
-  );
+
+      options: {
+        responsive: true,
+
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    alert("Cannot load statistics.");
+  }
 }
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.onclick = () => {
+  if (confirm("Logout?")) {
+    localStorage.removeItem("adminToken");
+    localStorage.removeItem("adminName");
+    localStorage.removeItem("adminEmail");
+
+    window.location.href = "login.html";
+  }
+};
 
 loadStatistics();

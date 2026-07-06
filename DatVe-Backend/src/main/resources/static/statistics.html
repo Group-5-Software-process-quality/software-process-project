@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Statistics</title>
 
     <link
@@ -10,51 +12,162 @@
       rel="stylesheet"
     />
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
 
     <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/statistics.css" />
   </head>
 
   <body>
-    <div class="main">
-      <h2>Statistics</h2>
+    <div class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-ticket"></i>
+        EventSphere
+      </div>
 
-      <div class="row mt-4">
-        <div class="col-md-6">
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+          </a>
+        </li>
+
+        <li>
+          <a href="users.html">
+            <i class="fa-solid fa-users"></i>
+            Users
+          </a>
+        </li>
+
+        <li>
+          <a href="events.html">
+            <i class="fa-solid fa-calendar-days"></i>
+            Events
+          </a>
+        </li>
+
+        <li>
+          <a href="orders.html">
+            <i class="fa-solid fa-ticket"></i>
+            Orders
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="statistics.html">
+            <i class="fa-solid fa-chart-column"></i>
+            Statistics
+          </a>
+        </li>
+
+        <li>
+          <a href="#" id="logoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <div class="header">
+        <div>
+          <h2>Statistics</h2>
+
+          <p>
+            Welcome back,
+            <span id="adminName"></span>
+          </p>
+        </div>
+
+        <span id="today"></span>
+      </div>
+
+      <div class="cards">
+        <div class="card-item">
+          <div>
+            <h3 id="totalRevenue">0 ₫</h3>
+
+            <p>Total Revenue</p>
+          </div>
+
+          <i class="fa-solid fa-dollar-sign"></i>
+        </div>
+
+        <div class="card-item">
+          <div>
+            <h3 id="totalOrders">0</h3>
+
+            <p>Total Orders</p>
+          </div>
+
+          <i class="fa-solid fa-ticket"></i>
+        </div>
+
+        <div class="card-item">
+          <div>
+            <h3 id="paidOrders">0</h3>
+
+            <p>Paid Orders</p>
+          </div>
+
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <div class="card-item">
+          <div>
+            <h3 id="pendingOrders">0</h3>
+
+            <p>Pending Orders</p>
+          </div>
+
+          <i class="fa-solid fa-clock"></i>
+        </div>
+      </div>
+
+      <div class="statistics-grid">
+        <div class="chart-box">
+          <h4>Order Status</h4>
+
           <canvas id="statusChart"></canvas>
         </div>
 
-        <div class="col-md-6">
+        <div class="chart-box">
+          <h4>Revenue By Event</h4>
+
           <canvas id="revenueChart"></canvas>
         </div>
       </div>
 
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <div class="card p-3">
-            <h4 id="totalUsers">0</h4>
+      <div class="recent">
+        <h4>Revenue Details</h4>
 
-            Users
-          </div>
-        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Order</th>
 
-        <div class="col-md-4">
-          <div class="card p-3">
-            <h4 id="totalEvents">0</h4>
+              <th>User</th>
 
-            Events
-          </div>
-        </div>
+              <th>Event</th>
 
-        <div class="col-md-4">
-          <div class="card p-3">
-            <h4 id="totalRevenue">0 ₫</h4>
+              <th>Revenue</th>
 
-            Revenue
-          </div>
-        </div>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody id="statisticsTable"></tbody>
+        </table>
       </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="js/api.js"></script>
     <script src="js/auth.js"></script>

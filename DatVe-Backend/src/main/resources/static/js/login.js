@@ -60,7 +60,7 @@ form.addEventListener("submit", async (e) => {
     if (result.success) {
       localStorage.setItem("adminToken", result.token);
 
-      localStorage.setItem("adminName", result.admin.fullName);
+      localStorage.setItem("adminName", result.admin.name);
 
       localStorage.setItem("adminEmail", result.admin.email);
 

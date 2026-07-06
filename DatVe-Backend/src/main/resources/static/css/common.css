@@ -35,82 +35,66 @@ body {
   background: var(--background);
 }
 
-/* Sidebar */
+/* ================= Sidebar ================= */
 
 .sidebar {
   position: fixed;
-
   left: 0;
-
   top: 0;
-
   width: 250px;
-
   height: 100vh;
-
-  background: var(--dark);
-
-  color: white;
-
-  overflow: auto;
-
-  transition: 0.3s;
+  background: #111827;
+  color: #fff;
 }
 
 .logo {
   height: 70px;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
-  font-size: 25px;
-
+  font-size: 24px;
   font-weight: bold;
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo i {
+  color: #3b82f6;
   margin-right: 10px;
-
-  color: var(--primary);
 }
 
 .sidebar ul {
   list-style: none;
-
   padding: 20px 0;
 }
 
 .sidebar li {
-  transition: 0.25s;
+  transition: 0.3s;
 }
 
 .sidebar li:hover {
-  background: var(--dark-hover);
+  background: #1f2937;
 }
 
 .sidebar li.active {
-  background: var(--primary);
+  background: #2563eb;
 }
 
 .sidebar li a {
   display: flex;
-
   align-items: center;
-
-  color: white;
-
+  color: #fff;
   text-decoration: none;
-
-  padding: 17px 25px;
+  padding: 18px 25px;
 }
 
 .sidebar li i {
-  width: 30px;
+  width: 35px;
+  font-size: 18px;
+}
+
+.main {
+  margin-left: 250px;
+  padding: 30px;
 }
 
 /* Main */
