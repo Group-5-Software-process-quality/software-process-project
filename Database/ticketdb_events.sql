@@ -30,7 +30,7 @@ CREATE TABLE `events` (
   `price` double DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `events` (
 
 LOCK TABLES `events` WRITE;
 /*!40000 ALTER TABLE `events` DISABLE KEYS */;
-INSERT INTO `events` VALUES (1,500,'2026-08-01 19:30:00.000000','Đà Nẵng',350000,'Liveshow Sơn Tùng'),(2,800,'2026-09-10 20:00:00.000000','Hà Nội',750000,'Rap Việt Concert'),(3,900,'2026-10-12 20:00:00.000000','Dak lak',800000,'Anh trai Say Hi'),(4,900,'2026-07-20 00:09:00.000000','Đà Nẵng',10000000,'Em xinh Say Hi');
+INSERT INTO `events` VALUES (1,500,'2026-08-01 19:30:00.000000','Đà Nẵng',350000,'Liveshow Sơn Tùng'),(2,800,'2026-09-10 20:00:00.000000','Hà Nội',750000,'Rap Việt Concert'),(3,900,'2026-10-12 20:00:00.000000','Dak lak',800000,'Anh trai Say Hi'),(4,900,'2026-07-20 00:09:00.000000','Đà Nẵng',10000000,'Em xinh Say Hi'),(10,500,'2026-08-15 19:00:00.000000','Đà Nẵng',500000,'Music Festival'),(11,30000,'2026-08-20 18:30:00.000000','Hà Nội',300000,'Football Match'),(12,1000,'2026-09-05 08:00:00.000000','TP.HCM',800000,'Tech Conference'),(13,800,'2026-09-18 17:00:00.000000','Huế',150000,'Food Festival'),(14,1200,'2026-10-10 09:00:00.000000','Đà Nẵng',600000,'Startup Summit'),(15,500,'2026-08-15 19:00:00.000000','Đà Nẵng',500000,'Music Festival'),(16,30000,'2026-08-20 18:30:00.000000','Hà Nội',300000,'Football Match'),(17,1000,'2026-09-05 08:00:00.000000','TP.HCM',800000,'Tech Conference'),(18,800,'2026-09-18 17:00:00.000000','Huế',150000,'Food Festival'),(19,1200,'2026-10-10 09:00:00.000000','Đà Nẵng',600000,'Startup Summit');
 /*!40000 ALTER TABLE `events` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-07  1:40:35
+-- Dump completed on 2026-07-07 17:56:09

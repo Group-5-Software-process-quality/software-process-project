@@ -34,11 +34,16 @@ public class ForgotPasswordController {
             return "Email not found";
         }
 
-        String otp = String.valueOf(
-                100000 + new Random().nextInt(900000)
-        );
+        String otp = String.valueOf(100000 + new Random().nextInt(900000));
 
         otpStore.put(email, otp);
+
+        // LOG DEBUG
+        System.out.println("==================================");
+        System.out.println("OTP CREATED");
+        System.out.println("Email : " + email);
+        System.out.println("OTP   : " + otp);
+        System.out.println("==================================");
 
         mailService.sendOtp(email, otp);
 
@@ -55,6 +60,14 @@ public class ForgotPasswordController {
     ) {
 
         String savedOtp = otpStore.get(email);
+
+        // LOG DEBUG
+        System.out.println("==================================");
+        System.out.println("VERIFY OTP");
+        System.out.println("Email      : " + email);
+        System.out.println("Input OTP  : " + otp);
+        System.out.println("Saved OTP  : " + savedOtp);
+        System.out.println("==================================");
 
         if (savedOtp == null) {
             return "OTP expired";
@@ -79,7 +92,19 @@ public class ForgotPasswordController {
 
         String savedOtp = otpStore.get(email);
 
-        if (savedOtp == null || !savedOtp.equals(otp)) {
+        // LOG DEBUG
+        System.out.println("==================================");
+        System.out.println("RESET PASSWORD");
+        System.out.println("Email      : " + email);
+        System.out.println("Input OTP  : " + otp);
+        System.out.println("Saved OTP  : " + savedOtp);
+        System.out.println("==================================");
+
+        if (savedOtp == null) {
+            return "OTP expired";
+        }
+
+        if (!savedOtp.equals(otp)) {
             return "Invalid OTP";
         }
 
@@ -93,9 +118,9 @@ public class ForgotPasswordController {
 
         adminRepository.save(admin);
 
+        // Xóa OTP sau khi đổi mật khẩu thành công
         otpStore.remove(email);
 
         return "Password changed successfully";
     }
-
 }

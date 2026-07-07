@@ -28,7 +28,7 @@ CREATE TABLE `users` (
   `full_name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'cuong@gmail.com','Đàm Cường','1234567'),(2,'an@gmail.com','Nguyễn Văn An','123456'),(3,'hoa@gmail.com','Trần Thị Hoa','123456');
+INSERT INTO `users` VALUES (1,'cuong@gmail.com','Đàm Cường','1234567'),(2,'an@gmail.com','Nguyễn Văn An','123456'),(3,'hoa@gmail.com','Trần Thị Hoa','123456'),(6,'vana@gmail.com','Nguyễn Văn A','123456'),(7,'tranb@gmail.com','Trần Thị B','123456'),(8,'levanc@gmail.com','Lê Văn C','123456'),(9,'phamminhd@gmail.com','Phạm Minh D','123456'),(10,'hoanganh@gmail.com','Hoàng Anh E','123456'),(11,'vana@gmail.com','Nguyễn Văn A','123456'),(12,'tranb@gmail.com','Trần Thị B','123456'),(13,'levanc@gmail.com','Lê Văn C','123456'),(14,'phamminhd@gmail.com','Phạm Minh D','123456'),(15,'hoanganh@gmail.com','Hoàng Anh E','123456');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-07  1:40:35
+-- Dump completed on 2026-07-07 17:56:09
