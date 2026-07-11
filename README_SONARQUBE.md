@@ -40,12 +40,12 @@ README_PROCESS.md
 README_SONARQUBE.md
 
 images
-    ├── dashboard.png
-    ├── users.png
-    ├── events.png
-    ├── orders.png
-    ├── statistics.png
-    └── sonarqube-dashboard.png
+    ├── dashboard.png(images/sonarqube-dashboard.png)
+    ├── users.png(E:\DatVe\images\user.png)
+    ├── events.png(E:\DatVe\images\events.png)
+    ├── orders.png(E:\DatVe\images\order.png)
+    ├── statistics.png(E:\DatVe\images\statistics.png)
+    └── sonarqube-dashboard.png(images/sonarqube-dashboard.png)
 ```
 
 ---
