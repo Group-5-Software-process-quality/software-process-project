@@ -298,11 +298,3 @@ function editEvent(id) {
 
   modal.show();
 }
-
-// =========================
-//review picture
-// =========================
-
-document.getElementById("banner").onchange = function () {
-  previewImage(this, document.getElementById("preview"));
-};
