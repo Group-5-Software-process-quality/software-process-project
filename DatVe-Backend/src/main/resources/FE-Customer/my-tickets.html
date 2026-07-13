@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vé của tôi - EventSphere</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/my-tickets.css" />
+  </head>
+
+  <body>
+    <!-- ================= Nav ================= -->
+
+    <div class="nav">
+      <div class="container nav-inner">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-ticket"></i></span>
+          EventSphere
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html">Khám phá sự kiện</a>
+        </div>
+
+        <div class="nav-actions">
+          <a href="cart.html" class="nav-icon-link" title="Giỏ hàng">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </a>
+
+          <a href="my-tickets.html" class="nav-icon-link" title="Vé của tôi">
+            <i class="fa-solid fa-ticket"></i>
+          </a>
+
+          <a href="profile.html" class="user-pill">
+            <span class="avatar" id="userAvatar">P</span>
+            <span id="userNameShort">Bạn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container page">
+      <h1 class="section-title">Vé &amp; lịch sử giao dịch</h1>
+
+      <div id="emptyOrdersBox" class="empty-state" style="display: none">
+        <div class="icon"><i class="fa-solid fa-ticket"></i></div>
+        Bạn chưa có đơn hàng nào.
+        <br />
+        <a href="index.html" class="btn btn-primary" style="margin-top: 16px">Khám phá sự kiện</a>
+      </div>
+
+      <div id="ordersList"></div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        EventSphere · Nền tảng quản lý sự kiện &amp; bán vé
+      </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/my-tickets.js"></script>
+  </body>
+</html>
