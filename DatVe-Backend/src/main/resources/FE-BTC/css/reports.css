@@ -1,0 +1,27 @@
+/* ==========================================
+   EventSphere Organizer - reports.css
+========================================== */
+
+.reports-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.reports-select-field {
+  max-width: 420px;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.reports-export-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.reports-block {
+  margin-bottom: 20px;
+}

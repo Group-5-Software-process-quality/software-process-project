@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mã giảm giá - EventSphere Ban tổ chức</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/discounts.css" />
+  </head>
+
+  <body>
+    <!-- ================= Sidebar ================= -->
+
+    <div class="sidebar">
+      <div class="logo"><i class="fa-solid fa-ticket"></i> EventSphere</div>
+
+      <div class="sidebar-role">Cổng Ban tổ chức</div>
+
+      <ul>
+        <li>
+          <a href="index.html"><i class="fa-solid fa-chart-line"></i> Tổng quan</a>
+        </li>
+        <li>
+          <a href="events.html"><i class="fa-solid fa-calendar-days"></i> Sự kiện của tôi</a>
+        </li>
+        <li class="active">
+          <a href="discounts.html"><i class="fa-solid fa-tags"></i> Mã giảm giá</a>
+        </li>
+        <li>
+          <a href="checkin.html"><i class="fa-solid fa-qrcode"></i> Check-in QR</a>
+        </li>
+        <li>
+          <a href="reports.html"><i class="fa-solid fa-sack-dollar"></i> Báo cáo doanh thu</a>
+        </li>
+      </ul>
+
+      <div class="sidebar-foot">
+        <div class="name" id="sidebarName">-</div>
+        <div class="org" id="sidebarOrg">-</div>
+        <button id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</button>
+      </div>
+    </div>
+
+    <!-- ================= Main ================= -->
+
+    <div class="main">
+      <div class="topbar">
+        <h1>Mã giảm giá &amp; khuyến mãi</h1>
+      </div>
+
+      <div id="noEventsBox" class="empty-state" style="display: none">
+        <div class="icon"><i class="fa-solid fa-tags"></i></div>
+        Bạn cần tạo sự kiện trước khi thiết lập mã giảm giá.
+      </div>
+
+      <div id="discountsPage" style="display: none">
+        <div class="field" style="max-width: 420px">
+          <label>Chọn sự kiện</label>
+          <select class="input" id="eventSelect"></select>
+        </div>
+
+        <div class="card discounts-table-box">
+          <div id="emptyDiscountsBox" class="empty-state" style="padding: 24px; display: none">
+            Chưa có mã giảm giá cho sự kiện này.
+          </div>
+
+          <table class="table" id="discountsTable">
+            <thead>
+              <tr>
+                <th>Mã</th>
+                <th>Loại</th>
+                <th>Giá trị</th>
+                <th>Đã dùng / Tối đa</th>
+                <th>Trạng thái</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="discountsBody"></tbody>
+          </table>
+        </div>
+
+        <div class="card card-pad discount-form-box">
+          <strong>Tạo mã giảm giá mới</strong>
+
+          <form id="discountForm">
+            <div class="input-row-3">
+              <div class="field">
+                <label>Mã</label>
+                <input class="input" id="dCode" required placeholder="HELLO10" style="text-transform: uppercase" />
+              </div>
+
+              <div class="field">
+                <label>Loại</label>
+                <select class="input" id="dType">
+                  <option value="percent">Phần trăm (%)</option>
+                  <option value="fixed">Số tiền cố định (đ)</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label>Giá trị</label>
+                <input class="input" type="number" id="dValue" required min="1" />
+              </div>
+            </div>
+
+            <div class="field" style="max-width: 260px">
+              <label>Số lượt sử dụng tối đa</label>
+              <input class="input" type="number" id="dMax" value="100" min="1" />
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              <i class="fa-solid fa-plus"></i>
+              Tạo mã
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/discounts.js"></script>
+  </body>
+</html>

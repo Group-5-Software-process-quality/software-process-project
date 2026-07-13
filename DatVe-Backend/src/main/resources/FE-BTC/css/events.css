@@ -1,0 +1,17 @@
+/* ==========================================
+   EventSphere Organizer - events.css
+========================================== */
+
+.events-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.event-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}

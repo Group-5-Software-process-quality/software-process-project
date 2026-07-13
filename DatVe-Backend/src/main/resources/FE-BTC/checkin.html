@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check-in QR - EventSphere Ban tổ chức</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/checkin.css" />
+  </head>
+
+  <body>
+    <!-- ================= Sidebar ================= -->
+
+    <div class="sidebar">
+      <div class="logo"><i class="fa-solid fa-ticket"></i> EventSphere</div>
+
+      <div class="sidebar-role">Cổng Ban tổ chức</div>
+
+      <ul>
+        <li>
+          <a href="index.html"><i class="fa-solid fa-chart-line"></i> Tổng quan</a>
+        </li>
+        <li>
+          <a href="events.html"><i class="fa-solid fa-calendar-days"></i> Sự kiện của tôi</a>
+        </li>
+        <li>
+          <a href="discounts.html"><i class="fa-solid fa-tags"></i> Mã giảm giá</a>
+        </li>
+        <li class="active">
+          <a href="checkin.html"><i class="fa-solid fa-qrcode"></i> Check-in QR</a>
+        </li>
+        <li>
+          <a href="reports.html"><i class="fa-solid fa-sack-dollar"></i> Báo cáo doanh thu</a>
+        </li>
+      </ul>
+
+      <div class="sidebar-foot">
+        <div class="name" id="sidebarName">-</div>
+        <div class="org" id="sidebarOrg">-</div>
+        <button id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</button>
+      </div>
+    </div>
+
+    <!-- ================= Main ================= -->
+
+    <div class="main">
+      <div class="topbar">
+        <h1>Check-in khách tham dự bằng mã QR</h1>
+      </div>
+
+      <div class="card card-pad checkin-box">
+        <strong>Quét mã QR trên vé</strong>
+        <p class="checkin-note">
+          Camera sẽ hiển thị ở đây khi nối thư viện quét QR thật. Bạn có thể thử nhập mã vé thủ công bên dưới ngay bây giờ.
+        </p>
+
+        <div class="qr-scan-box">
+          <i class="fa-solid fa-camera"></i>
+        </div>
+
+        <button class="btn btn-ghost btn-sm btn-block" id="toggleCamBtn">
+          <i class="fa-solid fa-video"></i>
+          Bật camera
+        </button>
+
+        <div class="ticket-divider"></div>
+
+        <form id="manualForm">
+          <div class="field">
+            <label>Hoặc nhập mã vé thủ công</label>
+            <input class="input" id="manualCode" placeholder="EVP-XXXXXXXXXX" style="text-transform: uppercase" />
+          </div>
+
+          <div class="input-hint">
+            Thử mã mẫu: <strong>EVP-8F2K9QX1</strong> (hợp lệ) hoặc <strong>EVP-7A1M3PZ0</strong> (đã check-in).
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit" style="margin-top: 14px">
+            <i class="fa-solid fa-check"></i>
+            Check-in
+          </button>
+        </form>
+      </div>
+
+      <div id="resultBox" class="checkin-result"></div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/checkin.js"></script>
+  </body>
+</html>

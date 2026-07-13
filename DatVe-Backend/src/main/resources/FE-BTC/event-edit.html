@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chỉnh sửa sự kiện - EventSphere Ban tổ chức</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/event-edit.css" />
+  </head>
+
+  <body>
+    <!-- ================= Sidebar ================= -->
+
+    <div class="sidebar">
+      <div class="logo"><i class="fa-solid fa-ticket"></i> EventSphere</div>
+
+      <div class="sidebar-role">Cổng Ban tổ chức</div>
+
+      <ul>
+        <li>
+          <a href="index.html"><i class="fa-solid fa-chart-line"></i> Tổng quan</a>
+        </li>
+        <li class="active">
+          <a href="events.html"><i class="fa-solid fa-calendar-days"></i> Sự kiện của tôi</a>
+        </li>
+        <li>
+          <a href="discounts.html"><i class="fa-solid fa-tags"></i> Mã giảm giá</a>
+        </li>
+        <li>
+          <a href="checkin.html"><i class="fa-solid fa-qrcode"></i> Check-in QR</a>
+        </li>
+        <li>
+          <a href="reports.html"><i class="fa-solid fa-sack-dollar"></i> Báo cáo doanh thu</a>
+        </li>
+      </ul>
+
+      <div class="sidebar-foot">
+        <div class="name" id="sidebarName">-</div>
+        <div class="org" id="sidebarOrg">-</div>
+        <button id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</button>
+      </div>
+    </div>
+
+    <!-- ================= Main ================= -->
+
+    <div class="main">
+      <div class="topbar">
+        <h1 id="pageTitle">Chỉnh sửa sự kiện</h1>
+      </div>
+
+      <!-- ================= Tabs ================= -->
+
+      <div class="tabs">
+        <div class="tab active" id="tabInfoBtn">Thông tin sự kiện</div>
+        <div class="tab disabled" id="tabTicketsBtn">Loại vé</div>
+      </div>
+
+      <!-- ================= Tab: Thông tin ================= -->
+
+      <div id="tabInfo">
+        <div class="card card-pad">
+          <div id="infoError"></div>
+
+          <form id="infoForm">
+            <div class="field">
+              <label>Tên sự kiện</label>
+              <input class="input" id="title" required />
+            </div>
+
+            <div class="field">
+              <label>Mô tả</label>
+              <textarea class="input" id="description"></textarea>
+            </div>
+
+            <div class="field">
+              <label>Địa điểm</label>
+              <input class="input" id="locationName" />
+            </div>
+
+            <div class="input-row">
+              <div class="field">
+                <label>Thời gian bắt đầu</label>
+                <input class="input" type="datetime-local" id="startTime" required />
+              </div>
+
+              <div class="field">
+                <label>Sức chứa</label>
+                <input class="input" type="number" id="capacity" min="1" required />
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit" id="saveInfoBtn">Tạo sự kiện (bản nháp)</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ================= Tab: Loại vé ================= -->
+
+      <div id="tabTickets" style="display: none">
+        <div class="card">
+          <div class="card-pad"><strong>Các loại vé</strong></div>
+
+          <div id="emptyTicketTypesBox" class="empty-state" style="padding: 24px; display: none">
+            Chưa có loại vé nào.
+          </div>
+
+          <table class="table" id="ticketTypesTable">
+            <thead>
+              <tr>
+                <th>Tên</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Đã bán</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="ticketTypesBody"></tbody>
+          </table>
+        </div>
+
+        <div class="card card-pad ticket-type-form-box">
+          <strong>Thêm loại vé mới</strong>
+
+          <form id="ticketTypeForm">
+            <div class="input-row-3">
+              <div class="field">
+                <label>Tên loại vé</label>
+                <input class="input" id="ttName" required placeholder="VIP, Thường..." />
+              </div>
+
+              <div class="field">
+                <label>Giá (đ)</label>
+                <input class="input" type="number" id="ttPrice" min="0" required />
+              </div>
+
+              <div class="field">
+                <label>Số lượng</label>
+                <input class="input" type="number" id="ttQty" min="1" required />
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              <i class="fa-solid fa-plus"></i>
+              Thêm loại vé
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/event-edit.js"></script>
+  </body>
+</html>

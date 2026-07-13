@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sự kiện của tôi - EventSphere Ban tổ chức</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/events.css" />
+  </head>
+
+  <body>
+    <!-- ================= Sidebar ================= -->
+
+    <div class="sidebar">
+      <div class="logo"><i class="fa-solid fa-ticket"></i> EventSphere</div>
+
+      <div class="sidebar-role">Cổng Ban tổ chức</div>
+
+      <ul>
+        <li>
+          <a href="index.html"><i class="fa-solid fa-chart-line"></i> Tổng quan</a>
+        </li>
+        <li class="active">
+          <a href="events.html"><i class="fa-solid fa-calendar-days"></i> Sự kiện của tôi</a>
+        </li>
+        <li>
+          <a href="discounts.html"><i class="fa-solid fa-tags"></i> Mã giảm giá</a>
+        </li>
+        <li>
+          <a href="checkin.html"><i class="fa-solid fa-qrcode"></i> Check-in QR</a>
+        </li>
+        <li>
+          <a href="reports.html"><i class="fa-solid fa-sack-dollar"></i> Báo cáo doanh thu</a>
+        </li>
+      </ul>
+
+      <div class="sidebar-foot">
+        <div class="name" id="sidebarName">-</div>
+        <div class="org" id="sidebarOrg">-</div>
+        <button id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</button>
+      </div>
+    </div>
+
+    <!-- ================= Main ================= -->
+
+    <div class="main">
+      <div class="topbar">
+        <h1>Sự kiện của tôi</h1>
+      </div>
+
+      <div class="card">
+        <div class="card-pad events-head">
+          <strong id="eventCountLabel">0 sự kiện</strong>
+          <a href="event-edit.html" class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-plus"></i>
+            Tạo sự kiện mới
+          </a>
+        </div>
+
+        <div id="emptyEventsBox" class="empty-state" style="display: none">
+          <div class="icon"><i class="fa-solid fa-people-roof"></i></div>
+          Chưa có sự kiện nào.
+        </div>
+
+        <table class="table" id="eventsTable">
+          <thead>
+            <tr>
+              <th>Sự kiện</th>
+              <th>Thời gian</th>
+              <th>Trạng thái</th>
+              <th>Vé bán / Doanh thu</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="eventsBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/events.js"></script>
+  </body>
+</html>

@@ -1,18 +1,17 @@
 // ==========================================
-// EventSphere Customer
+// EventSphere Organizer
 // common.js
 // ==========================================
 
 // Money Format
 
 function money(value) {
-  if (!value) return "Miễn phí";
+  if (!value) return "0 đ";
 
   return Number(value).toLocaleString("vi-VN") + " đ";
 }
 
 // Date Format
-
 
 function formatDate(date) {
   if (!date) return "";
@@ -53,4 +52,25 @@ function escapeHtml(str) {
   const div = document.createElement("div");
   div.textContent = str || "";
   return div.innerHTML;
+}
+
+// Nhãn trạng thái sự kiện / đơn hàng
+
+function statusLabel(status) {
+  switch (status) {
+    case "draft":
+      return ["Bản nháp", "badge-neutral"];
+    case "pending":
+      return ["Chờ duyệt", "badge-warning"];
+    case "approved":
+      return ["Đã duyệt", "badge-success"];
+    case "rejected":
+      return ["Bị từ chối", "badge-danger"];
+    case "cancelled":
+      return ["Đã hủy", "badge-danger"];
+    case "paid":
+      return ["Đã thanh toán", "badge-success"];
+    default:
+      return [status, "badge-neutral"];
+  }
 }
