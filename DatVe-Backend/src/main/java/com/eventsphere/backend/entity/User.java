@@ -1,24 +1,12 @@
 package com.eventsphere.backend.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
 
+/**
+ * Tài khoản khách hàng (role = USER).
+ * Kế thừa Account -> dùng chung bảng "accounts".
+ */
 @Entity
-@Table(name = "users")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String fullName;
-
-    private String email;
-
-    private String password;
+@DiscriminatorValue("USER")
+public class User extends Account {
 }

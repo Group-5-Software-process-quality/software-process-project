@@ -1,0 +1,57 @@
+/* ==========================================
+   EventSphere Organizer - checkin.css
+========================================== */
+
+.checkin-box {
+  max-width: 480px;
+}
+
+.checkin-note {
+  color: #777;
+  font-size: 13.5px;
+  margin-top: 6px;
+}
+
+.qr-scan-box {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1;
+  background: #111827;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 16px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5670;
+  font-size: 64px;
+}
+
+.checkin-result {
+  max-width: 480px;
+  margin-top: 20px;
+}
+
+.result-success {
+  border-left: 4px solid #22c55e;
+}
+
+.result-warning {
+  border-left: 4px solid #f59e0b;
+}
+
+.result-danger {
+  border-left: 4px solid #ef4444;
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.result-title-success {
+  font-weight: bold;
+  color: #16803d;
+}
+
+.result-title-warning {
+  font-weight: bold;
+  color: #92600a;
+}

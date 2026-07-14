@@ -1,0 +1,496 @@
+/* ==========================================
+   EventSphere Organizer - common.css
+   Dùng chung cho mọi trang: sidebar, topbar, card, button, badge, table, form, toast
+========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  color: #1f2937;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ================= Sidebar (giống admin) ================= */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: #111827;
+  color: #fff;
+}
+
+.logo {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 22px;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo i {
+  color: #3b82f6;
+}
+
+.sidebar-role {
+  padding: 14px 22px 8px;
+  font-size: 11.5px;
+  color: #9aa3c0;
+  text-transform: uppercase;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 6px 0;
+}
+
+.sidebar li {
+  transition: 0.3s;
+}
+
+.sidebar li:hover {
+  background: #1f2937;
+}
+
+.sidebar li.active {
+  background: #2563eb;
+}
+
+.sidebar li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  padding: 15px 22px;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.sidebar li i {
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar-foot {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 16px 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+}
+
+.sidebar-foot .name {
+  font-weight: bold;
+  color: #fff;
+}
+
+.sidebar-foot .org {
+  color: #9aa3c0;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.sidebar-foot button {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #dfe2f0;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.sidebar-foot button:hover {
+  border-color: #ef4444;
+  color: #ff8b8b;
+}
+
+/* ================= Main ================= */
+
+.main {
+  margin-left: 250px;
+  padding: 30px;
+}
+
+.topbar {
+  background: white;
+  border-radius: 15px;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.topbar h1 {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+/* ================= Card ================= */
+
+.card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-pad {
+  padding: 22px 24px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  padding: 22px 24px;
+}
+
+.stat-label {
+  font-size: 12.5px;
+  color: #777;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 30px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-top: 6px;
+}
+
+.stat-sub {
+  font-size: 12.5px;
+  color: #777;
+  margin-top: 6px;
+}
+
+/* ================= Button ================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: #e7e9f0;
+  color: #1f2937;
+}
+
+.btn-ghost:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.btn-danger {
+  background: transparent;
+  border-color: #f3b8bf;
+  color: #ef4444;
+}
+
+.btn-danger:hover {
+  background: #fdecec;
+}
+
+.btn-sm {
+  padding: 7px 14px;
+  font-size: 13px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ================= Badge ================= */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.badge-success {
+  background: #e7f9ee;
+  color: #16803d;
+}
+
+.badge-danger {
+  background: #fdecec;
+  color: #c62828;
+}
+
+.badge-primary {
+  background: #eaf1ff;
+  color: #1d4ed8;
+}
+
+.badge-warning {
+  background: #fef3e2;
+  color: #92600a;
+}
+
+.badge-neutral {
+  background: #eef0f6;
+  color: #777;
+}
+
+/* ================= Form ================= */
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  background: white;
+  border: 1px solid #e7e9f0;
+  color: #1f2937;
+  border-radius: 10px;
+  padding: 10px 13px;
+  font-size: 14.5px;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+textarea.input {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.input-hint {
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.input-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.form-error-box {
+  background: #fdecec;
+  border: 1px solid #f3b8bf;
+  color: #c62828;
+  padding: 11px 15px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  margin-bottom: 16px;
+}
+
+/* ================= Table ================= */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  text-align: left;
+  padding: 13px 14px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #777;
+  border-bottom: 1px solid #e7e9f0;
+  background: #fafbfd;
+}
+
+.table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #e7e9f0;
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ================= Tabs ================= */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid #e7e9f0;
+  margin-bottom: 22px;
+}
+
+.tab {
+  padding: 11px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #777;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+.tab.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ================= Empty / loading ================= */
+
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: #777;
+}
+
+.empty-state .icon {
+  font-size: 34px;
+  margin-bottom: 10px;
+  color: #2563eb;
+}
+
+/* ================= Toast ================= */
+
+.toast-stack {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: #111827;
+  color: #fff;
+  border-radius: 10px;
+  padding: 13px 18px;
+  font-size: 14px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  max-width: 320px;
+}
+
+.toast.error {
+  background: #c62828;
+}
+
+.toast.success {
+  background: #16803d;
+}
+
+/* ================= Misc ================= */
+
+.ticket-code {
+  font-size: 13.5px;
+  letter-spacing: 0.5px;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.ticket-divider {
+  border-top: 2px dashed #e7e9f0;
+  margin: 20px 0;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #e7e9f0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 20px;
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+    padding: 15px;
+  }
+}

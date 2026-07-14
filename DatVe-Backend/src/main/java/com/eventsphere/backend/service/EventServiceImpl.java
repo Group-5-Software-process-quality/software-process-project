@@ -2,10 +2,12 @@ package com.eventsphere.backend.service;
 
 import com.eventsphere.backend.dto.EventDTO;
 import com.eventsphere.backend.entity.Event;
+import com.eventsphere.backend.entity.EventStatus;
 import com.eventsphere.backend.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -34,6 +36,8 @@ public class EventServiceImpl implements EventService {
         event.setEventDate(dto.getEventDate());
         event.setPrice(dto.getPrice());
         event.setCapacity(dto.getCapacity());
+        event.setStatus(EventStatus.APPROVED);
+        event.setCreatedAt(LocalDateTime.now());
 
         return eventRepository.save(event);
     }

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Báo cáo doanh thu - EventSphere Ban tổ chức</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/reports.css" />
+  </head>
+
+  <body>
+    <!-- ================= Sidebar ================= -->
+
+    <div class="sidebar">
+      <div class="logo"><i class="fa-solid fa-ticket"></i> EventSphere</div>
+
+      <div class="sidebar-role">Cổng Ban tổ chức</div>
+
+      <ul>
+        <li>
+          <a href="index.html"><i class="fa-solid fa-chart-line"></i> Tổng quan</a>
+        </li>
+        <li>
+          <a href="events.html"><i class="fa-solid fa-calendar-days"></i> Sự kiện của tôi</a>
+        </li>
+        <li>
+          <a href="discounts.html"><i class="fa-solid fa-tags"></i> Mã giảm giá</a>
+        </li>
+        <li>
+          <a href="checkin.html"><i class="fa-solid fa-qrcode"></i> Check-in QR</a>
+        </li>
+        <li class="active">
+          <a href="reports.html"><i class="fa-solid fa-sack-dollar"></i> Báo cáo doanh thu</a>
+        </li>
+      </ul>
+
+      <div class="sidebar-foot">
+        <div class="name" id="sidebarName">-</div>
+        <div class="org" id="sidebarOrg">-</div>
+        <button id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</button>
+      </div>
+    </div>
+
+    <!-- ================= Main ================= -->
+
+    <div class="main">
+      <div class="topbar">
+        <h1>Theo dõi bán vé &amp; doanh thu</h1>
+      </div>
+
+      <div id="noEventsBox" class="empty-state" style="display: none">
+        <div class="icon"><i class="fa-solid fa-sack-dollar"></i></div>
+        Chưa có sự kiện nào để theo dõi doanh thu.
+      </div>
+
+      <div id="reportsPage" style="display: none">
+        <div class="reports-toolbar">
+          <div class="field reports-select-field">
+            <label>Chọn sự kiện</label>
+            <select class="input" id="eventSelect"></select>
+          </div>
+
+          <div class="reports-export-buttons">
+            <button class="btn btn-ghost btn-sm" id="exportAttendeesBtn">
+              <i class="fa-solid fa-download"></i>
+              Xuất danh sách khách
+            </button>
+            <button class="btn btn-ghost btn-sm" id="exportRevenueBtn">
+              <i class="fa-solid fa-download"></i>
+              Xuất báo cáo doanh thu
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= Stat cards ================= -->
+
+        <div class="stat-grid">
+          <div class="card stat-card">
+            <div class="stat-label">Vé đã bán</div>
+            <div class="stat-value" id="statSold">0 / 0</div>
+            <div class="progress-bar" style="margin-top: 10px">
+              <div class="progress-bar-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-label">Doanh thu</div>
+            <div class="stat-value" id="statRevenue" style="color: #2563eb">0 đ</div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-label">Tỉ lệ lấp đầy</div>
+            <div class="stat-value" id="statFillRate">0%</div>
+          </div>
+        </div>
+
+        <!-- ================= By ticket type ================= -->
+
+        <div class="card reports-block">
+          <div class="card-pad"><strong>Theo loại vé</strong></div>
+
+          <div id="emptyTicketTypesBox" class="empty-state" style="padding: 20px; display: none">
+            Chưa có loại vé nào.
+          </div>
+
+          <table class="table" id="ticketTypesTable">
+            <thead>
+              <tr>
+                <th>Loại vé</th>
+                <th>Giá</th>
+                <th>Đã bán / Tổng</th>
+                <th>Doanh thu</th>
+              </tr>
+            </thead>
+            <tbody id="ticketTypesBody"></tbody>
+          </table>
+        </div>
+
+        <!-- ================= Recent orders ================= -->
+
+        <div class="card">
+          <div class="card-pad"><strong>Đơn hàng gần đây</strong></div>
+
+          <div id="emptyOrdersBox" class="empty-state" style="padding: 20px; display: none">
+            Chưa có đơn hàng nào.
+          </div>
+
+          <table class="table" id="ordersTable">
+            <thead>
+              <tr>
+                <th>Mã đơn</th>
+                <th>Khách hàng</th>
+                <th>Số tiền</th>
+                <th>Trạng thái</th>
+                <th>Thời gian</th>
+              </tr>
+            </thead>
+            <tbody id="ordersBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/reports.js"></script>
+  </body>
+</html>

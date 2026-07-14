@@ -35,9 +35,13 @@ logoutBtn.onclick = () => {
 // Load
 // =========================
 
+let priceLabels = {};
+
 async function loadEvents() {
   try {
     events = await API.GET("/events");
+
+    priceLabels = await API.GET("/admin/events/price-labels");
 
     filteredEvents = [...events];
 
@@ -73,7 +77,7 @@ function renderTable() {
 
             <td>${formatDate(event.eventDate)}</td>
 
-            <td>${money(event.price)}</td>
+            <td>${priceLabels[event.id] || money(event.price)}</td>
 
             <td>${event.capacity}</td>
 

@@ -1,0 +1,172 @@
+/* ==========================================
+   EventSphere Customer - event-detail.css
+========================================== */
+
+.page {
+  padding-top: 28px;
+  padding-bottom: 60px;
+  max-width: 820px;
+}
+
+.back-link {
+  color: #6b7280;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-box {
+  margin-top: 22px;
+}
+
+.event-hero-img {
+  height: 220px;
+  font-size: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+.event-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 14px 0 10px;
+  color: #111827;
+}
+
+.event-meta-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: #6b7280;
+  font-size: 14.5px;
+  margin-bottom: 16px;
+}
+
+.event-description {
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+/* ================= Ticket types ================= */
+
+.tt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #e7e9f0;
+}
+
+.tt-row:last-child {
+  border-bottom: none;
+}
+
+.tt-name {
+  font-weight: bold;
+  color: #111827;
+}
+
+.tt-remaining {
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.tt-price {
+  font-weight: bold;
+  color: #2563eb;
+  margin-top: 6px;
+}
+
+.tt-qty-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tt-qty-value {
+  min-width: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ================= Sticky total ================= */
+
+.sticky-total {
+  position: sticky;
+  bottom: 16px;
+  z-index: 20;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.total-label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.total-value {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+/* ================= Rating input ================= */
+
+.rating-input {
+  display: flex;
+  gap: 6px;
+  font-size: 24px;
+}
+
+.rating-input button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #e7e9f0;
+  padding: 0;
+}
+
+.rating-input button.active {
+  color: #f59e0b;
+}
+
+/* ================= Reviews ================= */
+
+.reviews-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-item {
+  border-bottom: 1px solid #e7e9f0;
+  padding-bottom: 14px;
+}
+
+.review-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-comment {
+  color: #6b7280;
+  margin-top: 6px;
+}

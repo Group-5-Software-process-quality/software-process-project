@@ -30,7 +30,7 @@ window.onload = () => {
   }
 };
 
-// Login
+// Login (dùng chung cho Admin / User / BTC)
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -52,21 +52,33 @@ form.addEventListener("submit", async (e) => {
   }
 
   try {
-    const result = await API.POST("/admin/login", {
+    const result = await API.POST("/auth/login", {
       email,
       password,
     });
 
     if (result.success) {
-      localStorage.setItem("adminToken", result.token);
-
-      localStorage.setItem("adminName", result.admin.name);
-
-      localStorage.setItem("adminEmail", result.admin.email);
-
+      // Lưu thông tin đăng nhập dùng chung cho toàn hệ thống
+      localStorage.setItem("authToken", result.token);
+      localStorage.setItem("accountRole", result.role);
+      localStorage.setItem("accountName", result.name);
+      localStorage.setItem("accountEmail", result.email);
       localStorage.setItem("rememberEmail", email);
 
-      window.location.href = "dashboard.html";
+      if (result.role === "ADMIN") {
+        // Giữ lại các key cũ để không phá vỡ các trang admin hiện có
+        localStorage.setItem("adminToken", result.token);
+        localStorage.setItem("adminName", result.name);
+        localStorage.setItem("adminEmail", result.email);
+
+        window.location.href = "dashboard.html";
+      } else if (result.role === "USER") {
+        window.location.href = "/customer/index.html";
+      } else if (result.role === "BTC") {
+        window.location.href = "/btc/index.html";
+      } else {
+        window.location.href = "dashboard.html";
+      }
     } else {
       alert(result.message);
     }
