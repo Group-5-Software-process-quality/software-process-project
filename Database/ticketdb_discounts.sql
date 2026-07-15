@@ -16,29 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `discounts`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `discounts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
+CREATE TABLE `discounts` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) DEFAULT NULL,
-  `full_name` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `active` bit(1) DEFAULT NULL,
+  `code` varchar(255) DEFAULT NULL,
+  `max_uses` int DEFAULT NULL,
+  `type` enum('FIXED','PERCENT') DEFAULT NULL,
+  `used_count` int DEFAULT NULL,
+  `value` double DEFAULT NULL,
+  `event_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UKbc29q3wh0lqhy0k84bx3afk08` (`code`),
+  KEY `FKc4fy1byqccjplvy7y1nxm5pky` (`event_id`),
+  CONSTRAINT `FKc4fy1byqccjplvy7y1nxm5pky` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `discounts`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'cuong@gmail.com','Đàm Cường','1234567'),(2,'an@gmail.com','Nguyễn Văn An','123456'),(3,'hoa@gmail.com','Trần Thị Hoa','123456'),(6,'vana@gmail.com','Nguyễn Văn A','123456'),(7,'tranb@gmail.com','Trần Thị B','123456'),(8,'levanc@gmail.com','Lê Văn C','123456'),(9,'phamminhd@gmail.com','Phạm Minh D','123456'),(10,'hoanganh@gmail.com','Hoàng Anh E','123456'),(11,'vana@gmail.com','Nguyễn Văn A','123456'),(12,'tranb@gmail.com','Trần Thị B','123456'),(13,'levanc@gmail.com','Lê Văn C','123456'),(14,'phamminhd@gmail.com','Phạm Minh D','123456'),(15,'hoanganh@gmail.com','Hoàng Anh E','123456');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `discounts` WRITE;
+/*!40000 ALTER TABLE `discounts` DISABLE KEYS */;
+INSERT INTO `discounts` VALUES (2,_binary '','MARATHON50K',100,'FIXED',0,50000,3),(3,_binary '','SUMMER15',200,'PERCENT',0,15,7),(4,_binary '','XINCHAO123',100,'PERCENT',1,10,11),(5,_binary '','WWERAW1234',100,'PERCENT',1,20,12),(6,_binary '','WWESMACKDOWN1234',100,'PERCENT',1,30,13),(7,_binary '','OXO123',100,'PERCENT',1,20,14);
+/*!40000 ALTER TABLE `discounts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-07 17:56:09
+-- Dump completed on 2026-07-15 21:20:33
