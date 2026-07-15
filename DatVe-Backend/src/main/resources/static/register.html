@@ -78,25 +78,16 @@
             />
           </div>
 
-          <div class="mb-3">
-            <label class="d-block mb-2">Loại tài khoản</label>
+          <div class="role-options d-flex gap-2">
+            <label class="role-option flex-fill">
+              <input type="radio" name="role" value="USER" checked />
+              <span><i class="fa-solid fa-user"></i> User</span>
+            </label>
 
-            <div class="role-options d-flex gap-2">
-              <label class="role-option flex-fill">
-                <input type="radio" name="role" value="USER" checked />
-                <span><i class="fa-solid fa-user"></i> User</span>
-              </label>
-
-              <label class="role-option flex-fill">
-                <input type="radio" name="role" value="ADMIN" />
-                <span><i class="fa-solid fa-user-shield"></i> Admin</span>
-              </label>
-
-              <label class="role-option flex-fill">
-                <input type="radio" name="role" value="BTC" />
-                <span><i class="fa-solid fa-people-group"></i> BTC</span>
-              </label>
-            </div>
+            <label class="role-option flex-fill">
+              <input type="radio" name="role" value="BTC" />
+              <span><i class="fa-solid fa-people-group"></i> BTC</span>
+            </label>
           </div>
 
           <button class="btn btn-primary w-100 mt-3" type="submit">
@@ -105,7 +96,9 @@
 
           <p class="text-center mt-3 mb-0">
             Đã có tài khoản?
-            <a href="login.html" class="text-primary text-decoration-none">Đăng nhập</a>
+            <a href="login.html" class="text-primary text-decoration-none"
+              >Đăng nhập</a
+            >
           </p>
         </form>
       </div>
