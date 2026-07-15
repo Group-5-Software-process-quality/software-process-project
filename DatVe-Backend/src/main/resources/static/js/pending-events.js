@@ -56,8 +56,6 @@ function renderTable() {
   emptyBox.style.display = "none";
 
   events.forEach((event) => {
-    const organizerName = event.organizer ? event.organizer.fullName : "Admin";
-
     table.innerHTML += `
 
         <tr>
@@ -66,16 +64,15 @@ function renderTable() {
 
             <td>${event.title}</td>
 
-            <td>${organizerName}</td>
+            <td>${event.organizerName}</td>
 
             <td>${event.location}</td>
 
             <td>${formatDate(event.eventDate)}</td>
 
-            <td>${money(event.price)}</td>
+            <td>${event.priceLabel}</td>
 
             <td>${event.capacity}</td>
-
             <td>
 
                 <button
