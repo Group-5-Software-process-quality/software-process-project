@@ -75,8 +75,6 @@ const API = {
       throw new Error(await response.text());
     }
 
-    if (response.status === 204) return true;
-
-    return await response.json();
+    return true; // Không cố parse JSON nữa, vì backend trả 200 rỗng hoặc 204 đều coi là thành công
   },
 };
